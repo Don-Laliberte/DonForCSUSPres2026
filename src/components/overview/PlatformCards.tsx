@@ -40,6 +40,7 @@ export default function PlatformCards() {
           <img
             src={card.emote}
             alt={card.title}
+            loading="lazy"
             className="w-[52px] h-[52px] flex-shrink-0 object-contain lg:w-16 lg:h-16 lg:mb-3"
             style={{ filter: 'drop-shadow(0 0 6px rgba(224,90,170,0.4))' }}
           />

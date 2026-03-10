@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, type ReactNode } from 'react'
+import { useState, useEffect, useCallback, type ReactNode } from 'react'
 import { motion } from 'framer-motion'
 
 interface Props {
@@ -8,7 +8,6 @@ interface Props {
 export default function IntroSequence({ children }: Props) {
   const [done, setDone] = useState(() => !!sessionStorage.getItem('intro-seen'))
   const [phase, setPhase] = useState(0)
-  const bgRef = useRef<HTMLDivElement>(null)
 
   const finish = useCallback(() => {
     sessionStorage.setItem('intro-seen', '1')
@@ -32,7 +31,6 @@ export default function IntroSequence({ children }: Props) {
     <div className="fixed inset-0 z-[100] overflow-hidden bg-ink">
       {/* Background image — starts centered, pans right */}
       <div
-        ref={bgRef}
         className="absolute inset-0 bg-cover bg-no-repeat transition-all"
         style={{
           backgroundImage: 'url(/don-photo.jpg)',

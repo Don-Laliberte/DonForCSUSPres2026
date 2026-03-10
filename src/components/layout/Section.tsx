@@ -27,8 +27,12 @@ export default function Section({
   className = '',
 }: Props) {
   return (
-    <section id={id} className={`relative min-h-screen overflow-hidden ${className}`}>
-      {/* Background photo */}
+    <section
+      id={id}
+      className={`relative min-h-screen overflow-hidden ${className}`}
+      style={{ contain: 'layout style paint' }}
+    >
+      {/* Background photo — separate for opacity + filter */}
       <div
         className="absolute inset-0 bg-cover bg-no-repeat"
         style={{
@@ -36,38 +40,24 @@ export default function Section({
           backgroundPosition: bgPosition,
           opacity: bgOpacity,
           filter: 'contrast(1.08) brightness(0.92)',
+          willChange: 'transform',
         }}
       />
 
-      {/* Left-to-right fade */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `linear-gradient(to right,
-            rgba(26,10,26,0.92) 0%,
-            rgba(26,10,26,0.55) 28%,
-            rgba(26,10,26,0.10) 52%,
-            rgba(26,10,26,0.0) 68%)`,
-        }}
-      />
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-ink to-transparent" />
-
-      {/* Top fade */}
-      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-ink/90 to-transparent" />
-
-      {/* Color tint */}
+      {/* Consolidated overlays: left fade + top fade + bottom fade + color tint */}
       <div
         className="absolute inset-0"
         style={{
           background: `
+            linear-gradient(to right, rgba(26,10,26,0.92) 0%, rgba(26,10,26,0.55) 28%, rgba(26,10,26,0.10) 52%, rgba(26,10,26,0.0) 68%),
+            linear-gradient(to bottom, rgba(26,10,26,0.9) 0%, transparent 10rem),
+            linear-gradient(to top, rgba(26,10,26,1) 0%, transparent 20rem),
             radial-gradient(ellipse at 75% 35%, rgba(82,16,83,0.32) 0%, transparent 55%),
             radial-gradient(ellipse at 20% 80%, rgba(86,85,131,0.2) 0%, transparent 50%)`,
         }}
       />
 
-      {/* Content — margin matches the fixed decorative border (inset-3.5 = 14px) */}
+      {/* Content */}
       <div
         className={`
           relative z-[5] flex flex-col

@@ -65,7 +65,7 @@ export default function App() {
     <IntroSequence>
       <div className="relative bg-ink">
         {/* Global decorations */}
-        <div className="fixed inset-3.5 border border-pink/[0.18] z-[2] pointer-events-none" />
+        <div className="fixed inset-3.5 border border-pink/[0.18] z-[2] pointer-events-none" style={{ willChange: 'transform' }} />
         <Corner className="fixed top-5 left-5" />
         <Corner className="fixed top-5 right-5 rotate-90" />
         <Corner className="fixed bottom-5 right-5 rotate-180" />
@@ -145,7 +145,7 @@ export default function App() {
             <Divider delay={0.3} className="my-6" />
 
             <motion.div variants={fadeUp} custom={0.4} className="flex items-center gap-4 mb-8">
-              <img src="/chars/nanashi.png" alt="Don chibi" className="w-16 h-16 object-contain flex-shrink-0 pixelated"
+              <img src="/chars/nanashi.png" alt="Don chibi" loading="lazy" className="w-16 h-16 object-contain flex-shrink-0 pixelated"
                 style={{ filter: 'drop-shadow(0 0 6px rgba(224,90,170,0.4))', imageRendering: 'pixelated' }} />
               <div>
                 <h3 className="font-heading text-sm tracking-[3px] text-pink uppercase font-bold mb-1">Don Laliberte</h3>
@@ -307,6 +307,7 @@ function GoalAccordion() {
               <img
                 src={goal.sprite}
                 alt={goal.title}
+                loading="lazy"
                 className="w-10 h-10 object-contain flex-shrink-0"
                 style={{ filter: 'drop-shadow(0 0 6px rgba(224,90,170,0.4))', imageRendering: 'pixelated' }}
               />
@@ -353,7 +354,7 @@ function GoalAccordion() {
 
 function Corner({ className }: { className: string }) {
   return (
-    <div className={`w-[55px] h-[55px] z-10 ${className}`}>
+    <div className={`w-[55px] h-[55px] z-10 ${className}`} style={{ willChange: 'transform' }}>
       <div className="absolute w-full h-[1.5px] top-0 left-0 bg-pink opacity-70" />
       <div className="absolute w-[1.5px] h-full top-0 left-0 bg-pink opacity-70" />
     </div>

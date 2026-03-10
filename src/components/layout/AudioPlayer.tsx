@@ -59,13 +59,13 @@ export default function AudioPlayer() {
 
   return (
     <>
-      <audio ref={audioRef} src="/bg-music.wav" preload="auto" />
+      <audio ref={audioRef} src="/bg-music.mp3" preload="none" />
       <motion.button
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.5, duration: 0.4 }}
         onClick={toggle}
-        className="fixed bottom-8 right-8 z-50 w-11 h-11 rounded-full border border-pink/30 bg-ink/80 backdrop-blur-md flex items-center justify-center hover:border-pink/60 hover:bg-purple-mid/30 transition-all duration-300 cursor-pointer group"
+        className="fixed bottom-8 right-8 z-50 w-11 h-11 rounded-full border border-pink/30 bg-ink/90 flex items-center justify-center hover:border-pink/60 hover:bg-purple-mid/30 transition-all duration-300 cursor-pointer group"
         title={playing ? 'Mute' : 'Play music'}
       >
         <AnimatePresence mode="wait">
