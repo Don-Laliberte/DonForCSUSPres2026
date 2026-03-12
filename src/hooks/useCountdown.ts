@@ -7,23 +7,23 @@ interface CountdownValues {
   secs: string
 }
 
-function getNextThursday2pm(): Date {
+function getNextFriday3pm(): Date {
   const now = new Date()
   const target = new Date(now)
   const day = now.getDay()
-  let daysUntil = (4 - day + 7) % 7
+  let daysUntil = (5 - day + 7) % 7
   if (daysUntil === 0) {
-    const todayAt2 = new Date(now)
-    todayAt2.setHours(14, 0, 0, 0)
-    if (now >= todayAt2) daysUntil = 7
+    const todayAt3 = new Date(now)
+    todayAt3.setHours(15, 0, 0, 0)
+    if (now >= todayAt3) daysUntil = 7
   }
   target.setDate(now.getDate() + daysUntil)
-  target.setHours(14, 0, 0, 0)
+  target.setHours(15, 0, 0, 0)
   return target
 }
 
 export function useCountdown(): CountdownValues {
-  const [target] = useState(getNextThursday2pm)
+  const [target] = useState(getNextFriday3pm)
   const [values, setValues] = useState<CountdownValues>({
     days: '00', hours: '00', mins: '00', secs: '00',
   })

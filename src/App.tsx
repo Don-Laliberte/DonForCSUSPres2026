@@ -158,7 +158,7 @@ export default function App() {
                 I'm a multidisciplined student — a workaholic and a creative. When I see value in something, I pursue it. Directed, precise, and deliberate.
               </ContentBlock>
               <ContentBlock title="Background" index={1}>
-                I come from a background of turning nothing into something. As an only child of middle-aged parents — one the oldest of five siblings, the other a 1st-gen migrant youngest of twelve — my life has been shaped by unique perspectives. I'm a product of my environment in the truest sense, and my values reflect emotional intelligence and the responsibility of a provider.
+                I come from a background of turning nothing into something. As an only child of middle-aged parents — a father who was the oldest of five siblings and a 1st-gen migrant mother who was the youngest of twelve — my life has been shaped by unique perspectives. I'm a product of my environment in the truest sense, and my values reflect emotional intelligence and the responsibility of a provider.
               </ContentBlock>
               <ContentBlock title="What Drives Me" index={2}>
                 Honestly? Love. I care about our team, the systemic problems in comp sci, and the students inside and outside our club. Most of you knew me as the person helping out in the course Discords — showing up for people well outside my responsibility. That's just who I am. I view everyone like family, and I do it out of principle, not for recognition. If there's a way to make things easier for people, I'll find it. Problem solver and optimizer at heart.

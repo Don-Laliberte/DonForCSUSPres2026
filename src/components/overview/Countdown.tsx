@@ -14,7 +14,7 @@ export default function Countdown() {
       className="mb-6"
     >
       <div className="text-[9px] tracking-[4px] text-pink/45 uppercase font-semibold mb-2">
-        Next drop — Thursday at 2 PM
+        Next drop — Friday at 3 PM
       </div>
       <div className="flex gap-2 items-center">
         {units.map((unit, i) => (
