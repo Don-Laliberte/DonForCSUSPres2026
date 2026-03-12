@@ -27,7 +27,7 @@ export default function PlatformCards() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.52 + i * 0.1 }}
-          className="relative border border-pink/15 bg-purple-deep/40 overflow-hidden group hover:border-pink/40 hover:bg-purple-mid/30 transition-[border-color,background-color,opacity] duration-150 flex items-center gap-3.5 p-3 px-3.5 lg:flex-col lg:items-center lg:justify-start lg:text-center lg:p-5 lg:pt-8 lg:aspect-square"
+          className="relative border border-pink/15 bg-purple-deep/40 overflow-hidden group hover:border-pink/40 hover:bg-purple-mid/30 transition-[border-color,background-color,opacity] duration-150 flex items-center gap-3.5 p-3 px-3.5 lg:flex-col lg:items-center lg:justify-center lg:text-center lg:p-5 lg:aspect-square"
         >
           <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-pink to-purple-rich opacity-0 group-hover:opacity-100 transition-opacity duration-150 lg:hidden" />
           <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-pink to-purple-rich opacity-0 group-hover:opacity-100 transition-opacity duration-150 hidden lg:block" />
