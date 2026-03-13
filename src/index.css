@@ -89,6 +89,12 @@ html, body, #root {
   will-change: box-shadow;
 }
 
+.animate-typing-dots {
+  display: inline;
+  animation: blink 1.4s step-end infinite;
+  will-change: opacity;
+}
+
 .font-display {
   font-family: var(--font-display);
 }

@@ -5,34 +5,29 @@ interface CountdownValues {
   hours: string
   mins: string
   secs: string
+  expired: boolean
 }
 
-function getNextFriday3pm(): Date {
-  const now = new Date()
-  const target = new Date(now)
-  const day = now.getDay()
-  let daysUntil = (5 - day + 7) % 7
-  if (daysUntil === 0) {
-    const todayAt3 = new Date(now)
-    todayAt3.setHours(15, 0, 0, 0)
-    if (now >= todayAt3) daysUntil = 7
-  }
-  target.setDate(now.getDate() + daysUntil)
-  target.setHours(15, 0, 0, 0)
-  return target
-}
+const TARGET = new Date('2026-03-13T15:00:00').getTime()
 
 export function useCountdown(): CountdownValues {
-  const [target] = useState(getNextFriday3pm)
-  const [values, setValues] = useState<CountdownValues>({
-    days: '00', hours: '00', mins: '00', secs: '00',
+  const [values, setValues] = useState<CountdownValues>(() => {
+    const diff = TARGET - Date.now()
+    if (diff <= 0) return { days: '00', hours: '00', mins: '00', secs: '00', expired: true }
+    return {
+      days: String(Math.floor(diff / 86400000)).padStart(2, '0'),
+      hours: String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0'),
+      mins: String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0'),
+      secs: String(Math.floor((diff % 60000) / 1000)).padStart(2, '0'),
+      expired: false,
+    }
   })
 
   useEffect(() => {
     function update() {
-      const diff = target.getTime() - Date.now()
+      const diff = TARGET - Date.now()
       if (diff <= 0) {
-        setValues({ days: '00', hours: '00', mins: '00', secs: '00' })
+        setValues({ days: '00', hours: '00', mins: '00', secs: '00', expired: true })
         return
       }
       setValues({
@@ -40,12 +35,13 @@ export function useCountdown(): CountdownValues {
         hours: String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0'),
         mins: String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0'),
         secs: String(Math.floor((diff % 60000) / 1000)).padStart(2, '0'),
+        expired: false,
       })
     }
     update()
     const id = setInterval(update, 1000)
     return () => clearInterval(id)
-  }, [target])
+  }, [])
 
   return values
 }
