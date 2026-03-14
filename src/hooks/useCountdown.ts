@@ -8,7 +8,7 @@ interface CountdownValues {
   expired: boolean
 }
 
-const TARGET = new Date('2026-03-13T15:00:00').getTime()
+const TARGET = new Date('2025-01-01T00:00:00').getTime()
 
 export function useCountdown(): CountdownValues {
   const [values, setValues] = useState<CountdownValues>(() => {
